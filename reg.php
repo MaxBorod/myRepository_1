@@ -18,7 +18,14 @@ if(isset($_POST['Surname'])&& isset($_POST['repeat_password'])&& isset($_POST['p
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$repeat_password = $_POST['repeat_password'];
-	echo "Ваш фамилия: $Surname  <br> Ваш телефон: $phone_namber <br> Ваш e-mail: $email<br> Ваш пароль:$password";
+	
+	if(($password==$repeat_password)&&(preg_match("/^(?:[a-z0-9]+(?:[-_.]?[a-z0-9]+)?@[a-z0-9_.-]+(?:\.?[a-z0-9]+)?\.[a-z]{2,5})$/i", $email))){
+	echo "Ваш фамилия: $Surname  <br> Ваш телефон: $phone_namber
+	<br> Ваш e-mail: $email<br> Ваш пароль:$password";
+	}
+	else{
+		echo "Не совпадают пароли";
+	}
 }
 ?>
 </div>
